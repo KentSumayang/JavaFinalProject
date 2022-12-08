@@ -234,15 +234,15 @@ public class Product extends javax.swing.JFrame {
         // TODO add your handling code here:
  
         String pName;
-        String pStock;
+        int pStock;
         
             pName = productName.getText();
-            pStock = productStock.getText();
+            pStock = Integer.parseInt(productStock.getText());
             
         try {
             pst = con.prepareStatement("INSERT INTO product (product_name,product_stock) VALUES (?,?)");
             pst.setString(1, pName);
-            pst.setString(2, pStock);
+            pst.setInt(2, pStock);
             
             pst.executeUpdate();
             

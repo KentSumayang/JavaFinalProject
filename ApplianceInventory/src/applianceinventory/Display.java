@@ -72,7 +72,7 @@ public class Display extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         addItem = new javax.swing.JButton();
         removeItem = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        editItem = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
@@ -122,9 +122,14 @@ public class Display extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setText("Edit Item");
-        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        editItem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        editItem.setText("Edit Item");
+        editItem.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        editItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editItemActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton4.setText("Switch User");
@@ -140,7 +145,7 @@ public class Display extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(addItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(removeItem, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(editItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -152,7 +157,7 @@ public class Display extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(removeItem)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(editItem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -191,10 +196,19 @@ public class Display extends javax.swing.JFrame {
     private void removeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeItemActionPerformed
         // TODO add your handling code here:
         if(evt.getSource() == removeItem){
-            
+        RemoveProduct rmvProduct = new RemoveProduct();
+        rmvProduct.show();
+        dispose();
         }
         
     }//GEN-LAST:event_removeItemActionPerformed
+
+    private void editItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editItemActionPerformed
+        // TODO add your handling code here:
+        if (evt.getSource() == editItem) {
+            
+        }
+    }//GEN-LAST:event_editItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,7 +248,7 @@ public class Display extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addItem;
     private javax.swing.JTable displayTable;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton editItem;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
