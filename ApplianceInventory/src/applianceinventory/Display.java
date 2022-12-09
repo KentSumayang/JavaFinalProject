@@ -55,6 +55,25 @@ public class Display extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        try {
+            String sql = "SELECT * FROM history";
+            pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            historyTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            
+        }
+        try {
+            String sql = "SELECT * FROM request";
+            pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            requestTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            
+        }
+    
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,18 +87,21 @@ public class Display extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         displayTable = new javax.swing.JTable();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        historyTable = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        requestTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         addItem = new javax.swing.JButton();
         removeItem = new javax.swing.JButton();
         editItem = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        displayTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         displayTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -100,7 +122,37 @@ public class Display extends javax.swing.JFrame {
         }
 
         jTabbedPane1.addTab("Inventory", jScrollPane1);
-        jTabbedPane1.addTab("History", jTabbedPane2);
+
+        historyTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        historyTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(historyTable);
+
+        jTabbedPane1.addTab("History", jScrollPane2);
+
+        requestTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(requestTable);
+
+        jTabbedPane1.addTab("Request", jScrollPane3);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -131,10 +183,6 @@ public class Display extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton4.setText("Switch User");
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton5.setText("Sign out");
         jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -146,7 +194,6 @@ public class Display extends javax.swing.JFrame {
             .addComponent(addItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(removeItem, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
             .addComponent(editItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -158,9 +205,7 @@ public class Display extends javax.swing.JFrame {
                 .addComponent(removeItem)
                 .addGap(18, 18, 18)
                 .addComponent(editItem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(16, 16, 16))
         );
@@ -170,14 +215,18 @@ public class Display extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -252,12 +301,14 @@ public class Display extends javax.swing.JFrame {
     private javax.swing.JButton addItem;
     private javax.swing.JTable displayTable;
     private javax.swing.JButton editItem;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JTable historyTable;
     private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JButton removeItem;
+    private javax.swing.JTable requestTable;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,17 +11,22 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Student.Admin
  */
+
 public class EditProduct extends javax.swing.JFrame {
 
     /**
      * Creates new form EditProduct
      */
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+    LocalDateTime now = LocalDateTime.now();  
     public EditProduct() {
         initComponents();
         Connect();
@@ -365,6 +370,19 @@ public class EditProduct extends javax.swing.JFrame {
             
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        try {
+            String time = dtf.format(now);
+            pst = con.prepareStatement("INSERT INTO history (action_done,timestamp)VALUES(?,?)");
+            pst.setString(1, "EDITED ITEM");
+            pst.setString(2, time);
+            
+            pst.executeUpdate();
+            
+            Display display = new Display();
+            display.show();
+            dispose();
+        } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton_SearchActionPerformed
 

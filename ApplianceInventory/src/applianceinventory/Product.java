@@ -249,7 +249,6 @@ public class Product extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
- 
         String pName;
         int pStock;
         String time;
@@ -271,12 +270,23 @@ public class Product extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "Record been added.");
             
+            
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            pst = con.prepareStatement("INSERT INTO history (action_done,timestamp)VALUES(?,?)");
+            pst.setString(1, "ADD ITEM");
+            pst.setString(2, time);
+            
+            pst.executeUpdate();
+            
             Display display = new Display();
             display.show();
             dispose();
             
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
