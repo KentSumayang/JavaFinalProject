@@ -371,19 +371,7 @@ public class EditProduct extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        try {
-            String time = dtf.format(now);
-            pst = con.prepareStatement("INSERT INTO history (action_done,timestamp)VALUES(?,?)");
-            pst.setString(1, "EDITED ITEM");
-            pst.setString(2, time);
-            
-            pst.executeUpdate();
-            
-            Display display = new Display();
-            display.show();
-            dispose();
-        } catch (Exception e) {
-        }
+        
     }//GEN-LAST:event_jButton_SearchActionPerformed
 
     private void btnApplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApplyActionPerformed
@@ -399,13 +387,21 @@ public class EditProduct extends javax.swing.JFrame {
             
             pst.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Record been edited.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            String time = dtf.format(now);
+            pst = con.prepareStatement("INSERT INTO history (action_done,timestamp)VALUES(?,?)");
+            pst.setString(1, "EDITED ITEM");
+            pst.setString(2, time);
+            
+            pst.executeUpdate();
             
             Display display = new Display();
             display.show();
             dispose();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
         }
         
         

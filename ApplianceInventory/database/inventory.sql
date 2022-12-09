@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2022 at 02:13 PM
+-- Generation Time: Dec 09, 2022 at 03:37 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -101,6 +101,24 @@ CREATE TABLE `request` (
 INSERT INTO `request` (`request_id`, `product_name`, `product_quantity`, `employee_id`) VALUES
 (1, 'LGTV', 788, 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `retrieve_request`
+--
+
+CREATE TABLE `retrieve_request` (
+  `retrieve_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `retrieve_request`
+--
+
+INSERT INTO `retrieve_request` (`retrieve_id`, `product_id`) VALUES
+(1, 6);
+
 --
 -- Indexes for dumped tables
 --
@@ -130,6 +148,12 @@ ALTER TABLE `request`
   ADD PRIMARY KEY (`request_id`);
 
 --
+-- Indexes for table `retrieve_request`
+--
+ALTER TABLE `retrieve_request`
+  ADD PRIMARY KEY (`retrieve_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -156,6 +180,12 @@ ALTER TABLE `product`
 --
 ALTER TABLE `request`
   MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `retrieve_request`
+--
+ALTER TABLE `retrieve_request`
+  MODIFY `retrieve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -70,8 +70,8 @@ public class UserDisplay extends javax.swing.JFrame {
         displayTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         btnRequest = new javax.swing.JButton();
-        btnRequest1 = new javax.swing.JButton();
-        btnRequest2 = new javax.swing.JButton();
+        btnRetrieve = new javax.swing.JButton();
+        btnSignout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,21 +100,21 @@ public class UserDisplay extends javax.swing.JFrame {
             }
         });
 
-        btnRequest1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRequest1.setText("Retrieve");
-        btnRequest1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnRequest1.addActionListener(new java.awt.event.ActionListener() {
+        btnRetrieve.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRetrieve.setText("Retrieve");
+        btnRetrieve.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRetrieve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRequest1ActionPerformed(evt);
+                btnRetrieveActionPerformed(evt);
             }
         });
 
-        btnRequest2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRequest2.setText("Sign out");
-        btnRequest2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnRequest2.addActionListener(new java.awt.event.ActionListener() {
+        btnSignout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSignout.setText("Sign out");
+        btnSignout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSignout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRequest2ActionPerformed(evt);
+                btnSignoutActionPerformed(evt);
             }
         });
 
@@ -126,8 +126,8 @@ public class UserDisplay extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRequest1, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                    .addComponent(btnRequest2, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
+                    .addComponent(btnRetrieve, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                    .addComponent(btnSignout, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -136,9 +136,9 @@ public class UserDisplay extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRequest)
                 .addGap(18, 18, 18)
-                .addComponent(btnRequest1)
+                .addComponent(btnRetrieve)
                 .addGap(96, 96, 96)
-                .addComponent(btnRequest2)
+                .addComponent(btnSignout)
                 .addGap(32, 32, 32))
         );
 
@@ -166,13 +166,16 @@ public class UserDisplay extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequest1ActionPerformed
+    private void btnRetrieveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrieveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRequest1ActionPerformed
+        RetrieveProduct ret = new RetrieveProduct();
+        ret.show();
+        dispose();
+    }//GEN-LAST:event_btnRetrieveActionPerformed
 
-    private void btnRequest2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequest2ActionPerformed
+    private void btnSignoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRequest2ActionPerformed
+    }//GEN-LAST:event_btnSignoutActionPerformed
 
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
         // TODO add your handling code here:
@@ -220,8 +223,8 @@ public class UserDisplay extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRequest;
-    private javax.swing.JButton btnRequest1;
-    private javax.swing.JButton btnRequest2;
+    private javax.swing.JButton btnRetrieve;
+    private javax.swing.JButton btnSignout;
     private javax.swing.JTable displayTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
