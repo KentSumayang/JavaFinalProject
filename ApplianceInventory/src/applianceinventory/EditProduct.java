@@ -387,6 +387,8 @@ public class EditProduct extends javax.swing.JFrame {
             
             pst.executeUpdate();
             
+            JOptionPane.showMessageDialog(null, "Item Edited Sucessfully.");
+            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

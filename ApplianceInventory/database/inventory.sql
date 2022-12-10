@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2022 at 03:37 PM
+-- Generation Time: Dec 10, 2022 at 09:58 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -79,7 +79,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_stock`, `time`) VALUES
-(6, 'qeqweqwe', 12, '2022/12/08 19:31:47');
+(6, 'qeqweqwe', 12, '2022/12/08 19:31:47'),
+(8, 'qeqweqwe', 12, '2022/12/10 16:57:51');
 
 -- --------------------------------------------------------
 
@@ -173,7 +174,7 @@ ALTER TABLE `history`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `request`
