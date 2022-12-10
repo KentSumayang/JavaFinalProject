@@ -67,15 +67,9 @@ public class Display extends javax.swing.JFrame {
             e.printStackTrace();
             
         }
-        try {
-            String sql = "SELECT * FROM request";
-            pst = con.prepareStatement(sql);
-            ResultSet rs = pst.executeQuery();
-            requestTable.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (SQLException e) {
-            e.printStackTrace();
+        
             
-        }
+        
     
     }
     /**
@@ -99,8 +93,6 @@ public class Display extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         displayTable = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        requestTable = new javax.swing.JTable();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -149,6 +141,7 @@ public class Display extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         historyTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -281,22 +274,6 @@ public class Display extends javax.swing.JFrame {
         }
 
         jTabbedPane1.addTab("Inventory", jScrollPane1);
-
-        requestTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        requestTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(requestTable);
-
-        jTabbedPane1.addTab("Request", jScrollPane3);
 
         jTabbedPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -850,6 +827,7 @@ public class Display extends javax.swing.JFrame {
         jTabbedPane2.addTab("Retrieval Request", jPanel2);
 
         jTabbedPane1.addTab("Retrieve", jTabbedPane2);
+        jTabbedPane1.addTab("Request", jTabbedPane3);
 
         historyTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         historyTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -1007,7 +985,7 @@ public class Display extends javax.swing.JFrame {
                     requestID = rs.getInt("retrieve_id");
                     resproductStock = rs.getInt("product_stock"); 
                 }
-                resultRequestNo.setText("Request No #"+requestID);
+                resultRequestNo.setText("Retrieval No #"+requestID);
                 resultProductName.setText(productName);
                 resultProductStock.setText("Stocks: "+resproductStock);
                 
@@ -1029,6 +1007,15 @@ public class Display extends javax.swing.JFrame {
             pst.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Retrieval Approved.");
+            
+            try {
+                pst = con.prepareStatement("INSERT INTO history (action_done,timestamp)VALUES(?,?)");
+                pst.setString(1, "RETRIEVE ITEM");
+                pst.setString(2, time);
+
+                pst.executeUpdate();
+            } catch (Exception e) {
+            }
             
             Display display = new Display();
             display.show();
@@ -1135,13 +1122,12 @@ public class Display extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JLabel productName1;
     private javax.swing.JLabel productStock;
     private javax.swing.JButton removeItem;
-    private javax.swing.JTable requestTable;
     private javax.swing.JPanel resultProductID;
     private javax.swing.JLabel resultProductName;
     private javax.swing.JLabel resultProductStock;
