@@ -99,8 +99,8 @@ public class Display extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         displayTable = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        historyTable = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        requestTable = new javax.swing.JTable();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -149,8 +149,8 @@ public class Display extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        requestTable = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        historyTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         addItem = new javax.swing.JButton();
         removeItem = new javax.swing.JButton();
@@ -282,8 +282,8 @@ public class Display extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Inventory", jScrollPane1);
 
-        historyTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        historyTable.setModel(new javax.swing.table.DefaultTableModel(
+        requestTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        requestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -294,9 +294,9 @@ public class Display extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(historyTable);
+        jScrollPane3.setViewportView(requestTable);
 
-        jTabbedPane1.addTab("History", jScrollPane2);
+        jTabbedPane1.addTab("Request", jScrollPane3);
 
         jTabbedPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -851,8 +851,8 @@ public class Display extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Retrieve", jTabbedPane2);
 
-        requestTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        requestTable.setModel(new javax.swing.table.DefaultTableModel(
+        historyTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        historyTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -863,9 +863,9 @@ public class Display extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(requestTable);
+        jScrollPane2.setViewportView(historyTable);
 
-        jTabbedPane1.addTab("Request", jScrollPane3);
+        jTabbedPane1.addTab("History", jScrollPane2);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
