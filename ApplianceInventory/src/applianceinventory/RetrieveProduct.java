@@ -228,7 +228,7 @@ public class RetrieveProduct extends javax.swing.JFrame {
              productName.setText("");
              productStocks.setText("");
              JOptionPane.showMessageDialog(null, "Request Submitted Sucessfully");
-             con.close();
+             
         } catch (Exception e) {
         }
         
@@ -249,7 +249,7 @@ public class RetrieveProduct extends javax.swing.JFrame {
             
             productName.setText(name);
             productStocks.setText(stock);
-            con.close();
+            
             
         } catch (SQLException e) {
             e.printStackTrace();
@@ -258,7 +258,7 @@ public class RetrieveProduct extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        Display display = new Display();
+        UserDisplay display = new UserDisplay();
         display.show();
         dispose();
     }//GEN-LAST:event_btnBackActionPerformed

@@ -985,22 +985,24 @@ public class Display extends javax.swing.JFrame {
     String time;
     int requestID;
     int resproductStock;
+    int resProductID;
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
     LocalDateTime now = LocalDateTime.now(); 
     private void btnLoadRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadRequestActionPerformed
         // TODO add your handling code here:
-        
+            resProductID = 0;
             requestID = 0;
             productName= "";
             resproductStock= 0;
             try {
-            sql = "SELECT product.product_name, product.product_stock,retrieve_request.retrieve_id\n" +
+            sql = "SELECT product.*,retrieve_request.retrieve_id\n" +
                     "FROM retrieve_request\n" +
                     "INNER JOIN product\n" +
                     "ON retrieve_request.product_id=product.product_id";
             pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
                 while (rs.next()) {
+                    resProductID = rs.getInt("product_id");
                     productName = rs.getString("product_name");
                     requestID = rs.getInt("retrieve_id");
                     resproductStock = rs.getInt("product_stock"); 
@@ -1021,17 +1023,16 @@ public class Display extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             time = dtf.format(now);
-            sql = "INSERT INTO product(product_name,product_stock,time)VALUES(?,?,?)";
-            
+            sql = "DELETE FROM product WHERE product_id="+resProductID;
             pst = con.prepareStatement(sql);
-            
-            pst.setString(1, productName);
-            pst.setInt(2, resproductStock);
-            pst.setString(3,time);
             
             pst.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Request Approved.");
+            JOptionPane.showMessageDialog(null, "Retrieval Approved.");
+            
+            Display display = new Display();
+            display.show();
+            dispose();
             
             con.close();
         } catch (SQLException e) {
