@@ -228,6 +228,9 @@ public class RetrieveProduct extends javax.swing.JFrame {
              productName.setText("");
              productStocks.setText("");
              JOptionPane.showMessageDialog(null, "Request Submitted Sucessfully");
+             UserDisplay udisp = new UserDisplay();
+             udisp.show();
+             dispose();
              
         } catch (Exception e) {
         }

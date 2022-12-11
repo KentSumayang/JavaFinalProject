@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
 /**
@@ -245,12 +247,14 @@ public class RequestProduct extends javax.swing.JFrame {
     private void editReqNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editReqNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editReqNameActionPerformed
-
+    String time;
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+    LocalDateTime now = LocalDateTime.now(); 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         product = editReqName.getText();
-        quantity = Integer.parseInt(editReqQuantity.getText());
-        id = Integer.parseInt(editEmpID.getText());
+        quantity = Integer.parseInt(editReqQuantity.getText().trim());
+        id = Integer.parseInt(editEmpID.getText().trim());
             
         try {
             pst = con.prepareStatement("INSERT INTO request(product_name,product_quantity,employee_id) VALUES (?,?,?)");
@@ -259,13 +263,29 @@ public class RequestProduct extends javax.swing.JFrame {
             pst.setInt(3, id);
             
             pst.executeUpdate();
+           
+            
+            JOptionPane.showMessageDialog(null, "Request Sent Sucessfully.");
             
             editEmpID.setText("");
             editEmpName.setText("");
             editReqName.setText("");
             editReqQuantity.setText("");
             
-            JOptionPane.showMessageDialog(null, "Request Sent Sucessfully.");
+            UserDisplay udisp = new UserDisplay();
+            udisp.show();
+            dispose();
+            
+             try {
+                time = dtf.format(now);
+                pst = con.prepareStatement("INSERT INTO history (action_done,timestamp)VALUES(?,?)");
+                pst.setString(1, "REQUEST ITEM");
+                pst.setString(2, time);
+
+                pst.executeUpdate();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             
             con.close();
         } catch (Exception e) {
