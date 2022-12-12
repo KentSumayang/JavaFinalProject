@@ -388,11 +388,7 @@ public class EditProduct extends javax.swing.JFrame {
             pst.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Item Edited Sucessfully.");
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
+            try {
             String time = dtf.format(now);
             pst = con.prepareStatement("INSERT INTO history (action_done,timestamp)VALUES(?,?)");
             pst.setString(1, "EDITED ITEM");
@@ -403,8 +399,14 @@ public class EditProduct extends javax.swing.JFrame {
             Display display = new Display();
             display.show();
             dispose();
-        } catch (Exception e) {
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+       
         
         
     }//GEN-LAST:event_btnApplyActionPerformed
