@@ -195,7 +195,7 @@ public class Login extends javax.swing.JFrame {
                 Display disp = new Display();
                 disp.show();
                 dispose();
-                
+                con.close();
             }else{
                 JOptionPane.showMessageDialog(null, "Invalid Credentials! Not found as Admin.");
             }
