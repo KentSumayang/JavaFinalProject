@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2022 at 03:33 PM
+-- Generation Time: Dec 16, 2022 at 08:45 AM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,6 +34,13 @@ CREATE TABLE `admin` (
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `employee_id`, `username`, `password`) VALUES
+(2, 6, 'admin', 'admin');
+
 -- --------------------------------------------------------
 
 --
@@ -51,10 +58,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`employee_id`, `employee_firstname`, `employee_lastname`) VALUES
-(2, 'Kent', 'James'),
-(3, 'kent', 'james'),
-(4, 'Kent James', 'Sumayang'),
-(5, 'Jihyo', 'Madyoga');
+(10, 'Kent James', 'Sumayang');
 
 -- --------------------------------------------------------
 
@@ -73,12 +77,11 @@ CREATE TABLE `history` (
 --
 
 INSERT INTO `history` (`id`, `action_done`, `timestamp`) VALUES
-(1, 'ADD ITEM', '2022-12-09 19:48:18'),
-(2, 'ADD ITEM', '2022-12-09 20:04:50'),
-(3, 'ADD ITEM', '2022-12-10 19:22:20'),
-(4, 'RETRIEVE ITEM', '2022-12-10 19:24:42'),
-(5, 'ADD ITEM', '2022-12-12 19:46:03'),
-(6, 'EDITED ITEM', '2022-12-12 19:48:13');
+(22, 'REQUEST ITEM', '2022-12-16 14:19:19'),
+(23, 'REQUEST ITEM APPROVED', '2022-12-16 14:20:35'),
+(24, 'REMOVED ITEM', '2022-12-16 15:33:06'),
+(25, 'ADD ITEM', '2022-12-16 15:34:12'),
+(26, 'EDITED ITEM', '2022-12-16 15:38:17');
 
 -- --------------------------------------------------------
 
@@ -98,7 +101,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_stock`, `time`) VALUES
-(10, 'Musiga nga Lights', 410, '2022/12/12 19:46:03');
+(22, 'Radio Stereo', 1200, '2022/12/16 15:34:12');
 
 -- --------------------------------------------------------
 
@@ -112,13 +115,6 @@ CREATE TABLE `request` (
   `product_quantity` int(11) NOT NULL,
   `employee_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `request`
---
-
-INSERT INTO `request` (`request_id`, `product_name`, `product_quantity`, `employee_id`) VALUES
-(1, 'LGTV', 788, 1);
 
 -- --------------------------------------------------------
 
@@ -138,7 +134,9 @@ CREATE TABLE `retrieve_request` (
 INSERT INTO `retrieve_request` (`retrieve_id`, `product_id`) VALUES
 (1, 6),
 (2, 8),
-(3, 9);
+(3, 9),
+(4, 14),
+(5, 20);
 
 -- --------------------------------------------------------
 
@@ -158,11 +156,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `employee_id`, `username`, `password`) VALUES
-(1, 2, 'kent123', 'james123'),
-(3, 3, 'user', 'pass'),
-(4, 3, 'user', 'pass'),
-(5, 3, 'user12', 'pass12'),
-(6, 3, 'kent123', 'james123');
+(11, 1, 'user', 'user');
 
 --
 -- Indexes for dumped tables
@@ -219,43 +213,43 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `retrieve_request`
 --
 ALTER TABLE `retrieve_request`
-  MODIFY `retrieve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `retrieve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
