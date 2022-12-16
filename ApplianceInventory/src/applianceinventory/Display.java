@@ -69,7 +69,6 @@ public class Display extends javax.swing.JFrame {
         }
         
             
-        
     
     }
     /**
@@ -228,6 +227,7 @@ public class Display extends javax.swing.JFrame {
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        displayTable.setBackground(new java.awt.Color(255, 204, 102));
         displayTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         displayTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -250,12 +250,14 @@ public class Display extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Inventory", jScrollPane1);
 
+        jTabbedPane2.setBackground(new java.awt.Color(153, 153, 153));
         jTabbedPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         resultProductID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        resultRequestNo.setBackground(new java.awt.Color(255, 255, 255));
         resultRequestNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         resultRequestNo.setText("No Results");
 
@@ -276,6 +278,7 @@ public class Display extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel6.setBackground(new java.awt.Color(255, 204, 102));
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         productName1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -323,6 +326,7 @@ public class Display extends javax.swing.JFrame {
                 .addContainerGap(76, Short.MAX_VALUE))
         );
 
+        btnApprove.setBackground(new java.awt.Color(153, 255, 204));
         btnApprove.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnApprove.setText("APPROVE");
         btnApprove.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -356,6 +360,7 @@ public class Display extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnLoadRequest.setBackground(new java.awt.Color(153, 255, 153));
         btnLoadRequest.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLoadRequest.setText("LOAD REQUEST");
         btnLoadRequest.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -414,6 +419,7 @@ public class Display extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel7.setBackground(new java.awt.Color(255, 204, 102));
         jPanel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         productName2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -461,6 +467,7 @@ public class Display extends javax.swing.JFrame {
                 .addContainerGap(76, Short.MAX_VALUE))
         );
 
+        btnApproveRequest.setBackground(new java.awt.Color(153, 255, 204));
         btnApproveRequest.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnApproveRequest.setText("APPROVE");
         btnApproveRequest.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -501,6 +508,7 @@ public class Display extends javax.swing.JFrame {
                     .addGap(23, 23, 23)))
         );
 
+        btnLoadReq.setBackground(new java.awt.Color(153, 255, 153));
         btnLoadReq.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLoadReq.setText("LOAD REQUEST");
         btnLoadReq.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -534,6 +542,7 @@ public class Display extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Request", jTabbedPane3);
 
+        historyTable.setBackground(new java.awt.Color(255, 204, 102));
         historyTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         historyTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -552,6 +561,7 @@ public class Display extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        addItem.setBackground(new java.awt.Color(0, 204, 204));
         addItem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         addItem.setText("Add Item");
         addItem.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -561,6 +571,7 @@ public class Display extends javax.swing.JFrame {
             }
         });
 
+        removeItem.setBackground(new java.awt.Color(102, 255, 102));
         removeItem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         removeItem.setText("Remove Item");
         removeItem.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -570,6 +581,7 @@ public class Display extends javax.swing.JFrame {
             }
         });
 
+        editItem.setBackground(new java.awt.Color(0, 255, 204));
         editItem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         editItem.setText("Edit Item");
         editItem.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -579,6 +591,7 @@ public class Display extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setBackground(new java.awt.Color(255, 0, 0));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton5.setText("Sign out");
         jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -604,15 +617,15 @@ public class Display extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
+                .addGap(23, 23, 23)
                 .addComponent(addItem)
                 .addGap(18, 18, 18)
                 .addComponent(removeItem)
                 .addGap(18, 18, 18)
                 .addComponent(editItem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -628,14 +641,14 @@ public class Display extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -718,7 +731,7 @@ public class Display extends javax.swing.JFrame {
             
             pst.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Retrieval Approved.");
+            JOptionPane.showMessageDialog(null, "Retrieval has been approved!");
             
             try {
                 pst = con.prepareStatement("INSERT INTO history (action_done,timestamp)VALUES(?,?)");
@@ -784,7 +797,7 @@ public class Display extends javax.swing.JFrame {
 
                 pst.executeUpdate();
                 
-                JOptionPane.showMessageDialog(null, "Request Approved.");
+                JOptionPane.showMessageDialog(null, "Request has been approved!");
             } catch (Exception e) {
             }
             try {
