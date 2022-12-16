@@ -216,7 +216,18 @@ public class Register extends javax.swing.JFrame {
         password = registerPassword.getText();
         firstname = registerFirstname.getText();
         lastname = registerLastname.getText();
-        employee_id = 2;
+        
+        try {
+            sql = "SELECT * FROM employee ORDER BY employee_id DESC LIMIT 1";
+            pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                employee_id = rs.getInt("employee_id");
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         try {
             employee_id ++;
             sql = "INSERT INTO user (username,password,employee_id) VALUES (?,?,?)";
@@ -254,6 +265,7 @@ public class Register extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

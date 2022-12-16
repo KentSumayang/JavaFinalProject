@@ -195,19 +195,17 @@ public class Login extends javax.swing.JFrame {
                 Display disp = new Display();
                 disp.show();
                 dispose();
-                con.close();
                 
             }else{
-                
-                
+                JOptionPane.showMessageDialog(null, "Invalid Credentials! Not found as Admin.");
             }
+           
             
         } catch (SQLException e) {
             e.printStackTrace();
         }
         
          try {
-            Connect();
             String username = inputUsername.getText();
             String password = inputPassword.getText();
             sql = "SELECT * FROM user WHERE username='"+username+"' AND password='"+password+"'";
@@ -220,8 +218,12 @@ public class Login extends javax.swing.JFrame {
                 dispose();
                 con.close();
             }else{
-                
+                inputPassword.setText("");
+                inputUsername.setText("");
+                JOptionPane.showMessageDialog(null, "Invalid Credentials! Not found in Users.");
             }
+            con.close();
+             System.out.println("Connection Closed");
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -790,20 +790,20 @@ public class Display extends javax.swing.JFrame {
             
             pst.executeUpdate();
             
+            
             try {
                 pst = con.prepareStatement("INSERT INTO history (action_done,timestamp)VALUES(?,?)");
                 pst.setString(1, "REQUEST ITEM APPROVED");
-                pst.setString(1, time);
-
+                pst.setString(2, time);
                 pst.executeUpdate();
                 
-                JOptionPane.showMessageDialog(null, "Request has been approved!");
             } catch (Exception e) {
             }
             try {
                 sql = "DELETE FROM request WHERE request_id="+reqID;
                 pst  =con.prepareStatement(sql);
                 pst.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Request has been approved!");
             } catch (Exception e) {
             }
             
